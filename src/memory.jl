@@ -241,7 +241,7 @@ function try_cuda_alloc(bytes)
   buf = nothing
   try
     stats.cuda_time += Base.@elapsed begin
-      buf = Mem.alloc(Mem.Device, bytes)
+      buf = Mem.alloc(Mem.Unified, bytes)
     end
     stats.actual_nalloc += 1
     stats.actual_alloc += bytes
